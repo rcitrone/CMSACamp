@@ -7,7 +7,7 @@ script. The two files so far are:
 * [nba_2019_player_stats.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ) - player statistics from the 2019 NBA season, courtesy of [basketball-reference](https://www.basketball-reference.com/leagues/NBA_2019_totals.html).
 
 Both of these datasets have variables necessary for generating a variety of plots,
-as well as demonstrating how to perfrom the basic split-apply-combine operations.
+as well as demonstrating how to perform the basic split-apply-combine operations.
 
 # MLB teams data
 
