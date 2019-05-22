@@ -67,7 +67,10 @@ br_page <- xml2::read_html(nba_url)
 
 nba_2019_player_stats <- rvest::html_table(br_page, fill = T)[[1]] %>%
   # Remove the header rows where Player == "Player":
-  filter(Player != "Player") %>%
+  filter(Player != "Player",
+         # As well as the rows corresponding to player totals across the teams
+         # they played for in the 2019 season:
+         Tm != "TOT") %>%
   # Convert everything but Player, Pos, and Tm to numeric 
   mutate_at(dplyr::vars(-Player, -Pos, -Tm), list(~as.numeric)) %>%
   # Drop several columns not needed - so students calculate on their own the
