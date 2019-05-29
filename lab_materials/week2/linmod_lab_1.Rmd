@@ -1,0 +1,214 @@
+---
+title: "Linear Modeling Lab 1"
+author: "Sports Camp Crew"
+date: "May 27, 2019"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Linear modeling
+
+## Goals
+
+In class we've learned about simple linear modeling. Now, its time to build some simple, one-variable linear models of our own!
+
+We have five main goals in this lab:
+
++ Use exploratory data analysis (EDA) and visualization to determine a) whether two variables have a linear relationship, and b) among a set of explanatory variables, which one(s) seem like the best candidates for
+predicting a given output variable.
+
++ Fit a few simple one-variable linear models.
+
++ Interpret our fitted linear models.
+
++ Assess our fitted linear models.
+
++ Use our fitted linear models to perform prediction.
+
+## Preliminaries
+
+Execute the following code chunk to load the necessary packages for this lab:
+
+```{r}
+library('tidyverse')
+```
+
+Execute the following code chunk to a) load the necessary data for this lab, b) compute a few variables we will use in this lab, and c) subset out players with low minute totals:
+
+```{r}
+nba <- read.csv("https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ")
+
+nba$field_goal_percentage <- nba$field_goals / nba$field_goal_attempts
+nba$three_point_percentage <- nba$three_pointers / nba$three_point_attempts
+nba$free_throw_percentage <- nba$free_throws / nba$free_throw_attempts
+nba_subset <- filter_all(nba, all_vars(!is.na(.))) %>% 
+  filter(minutes_played > 250) 
+```
+
+## Which players play the most minutes?
+
+In the National Basketball Association (NBA), and more generally in team sports, a coach must make decisions about how many minutes each player should play. Typically, these decisions are informed by a player's skills, along with other factors such as fatigue, matchups, etc. Our goal today is to use measurements of a few (quantifiable) player attributes to predict the number of minutes a player plays. In particular, we have the following data, measured over the 2019 NBA regular season for 438 total players:
+
++ `player`: The names of each player (not useful for modeling purposes, but just for fun!)
++ `minutes_played`: Our response variable, measuring the total number of minutes a player played over the entire 2019 NBA regular season.
++ `field_goal_percentage`: Potential explanatory variable, calculated as (number of made field goals) / (number of field goals attempted).
++ `free_throw_percentage`: Potential explanatory variable, calculated as (number of made free throws) / (number of free throws attempted).
++ `three_point_percentage`: Potential explanatory variable, calculated as (number of made 3 point shots) / (number of 3 point shots attempted).
+
+## Exploratory Data Analysis
+
+To start with, let's do some EDA to visually assess which of our three explanatory variables is most associated with number of minutes played. Execute the following code chunk to make a scatterplot showing the relationship of field goal percentage with number of minutes played:
+
+```{r}
+ggplot(data = nba_subset, aes(x = field_goal_percentage, y = minutes_played)) + geom_point()
+```
+
+**Question 1**. Describe the direction and strength of the association between field goal percentage and minutes played. Does the relationship between the explanatory variable and response variable appear to be linear?
+
+**Question 2**. Now, in the following code chunks, write code making equivalent scatterplots showing the relationships between free throw percentage and minutes played, and three point percentage and minutes played.
+
+```{r}
+```
+
+```{r}
+```
+
+Using the two scatterplots you've just built, describe the direction and strength of the association between the explanatory and response variables. In each case, does the relationship between the explanatory variable and response variable appear to be linear?
+
+**Question 3**. In your opinion, which of the three explanatory variables (field goal percentage, free throw percentage, three point percentage) is the best predictor of minutes played?
+
+**Question 4**. Correlation is a measure of the strength of the linear relationship between two variables. Run the following code chunk to compute the correlation between minutes played and each of the three explanatory variables.
+
+```{r}
+cor(x = nba_subset[, c("field_goal_percentage","free_throw_percentage","three_point_percentage")],
+    y = nba_subset[,c("minutes_played")])
+```
+
+Which explanatory variable has the strongest linear association with minutes played? Does this agree/disagree with your answer to Question 3?
+
+
+## Fit a one-variable linear model
+
+Now that we've performed some EDA, it's time to actually fit a linear model to our data. Execute the following code chunk to a) fit a linear model predicting minutes played as a function of field goal percentage, and b) summarize the fitted model. 
+
+```{r}
+fieldgoal_linmod <- lm(minutes_played ~ field_goal_percentage, data = nba_subset)
+summary(fieldgoal_linmod)
+```
+
+**Question 1**. In the following code chunks, fit and store two linear models, one predicting minutes played as a function of free throw percentage, the other predicting minutes played as a function of three point percentage. Summarize both linear models. 
+
+```{r}
+```
+
+```{r}
+```
+
+**Question 2**. In words, as we went over in class, interpret the intercept and slope coefficients for each of the three models we've just fitted. 
+
+## Assess fitted models
+
+Now that we have three candidate linear models for predicting minutes played, we need to determine which model we prefer. We can do so either visually or numerically.
+
+**Question 1**. The `summary` function, when called on a stored linear model, computes a bunch of interesting information about that model. One such interesting statistic is known as the $R^2$, which measures the proportion of variation in the response variable explained by the explanatory variable. In simple terms, the higher the $R^2$ of a one-variable linear model, the more useful the explanatory variable was in predicting the response variable (using a linear model).
+
+Execute the following code chunk to compute the $R^2$ of the linear model predicting minutes played using field goal percentage.
+
+```{r}
+freethrow_rsq <- summary(freethrow_linmod)$r.squared
+freethrow_rsq
+```
+
+In the following code chunks, compute the $R^2$ of the other two linear models you fitted.
+
+```{r}
+```
+
+```{r}
+```
+
+Based on $R^2$, which explanatory variable was most useful in predicting minutes played (using a linear model)?
+
+**Question 2**. To assess the fit of a one-variable linear model, we can also plot the linear fit over our scatterplot. One way to do this is via the `stat_smooth` function in `ggplot`, which will (re)compute the linear models we computed in Question 2. Execute the following code chunk to show the best fit line of the linear model between field goal percentage and minutes played.
+
+```{r}
+ggplot(data = nba_subset, aes(x = field_goal_percentage, y = minutes_played)) + 
+  geom_point() +
+  stat_smooth(method = 'lm')
+```
+
+Use this plot to assess the linear relationship between field goal percentage and minutes played.
+
+**Question 3**. In the following code chunks, plot the scatterplots and line of best fits between the explanatory variables free throw percentage and three point percentage, and the response variable minutes played.
+
+```{r}
+```
+
+```{r}
+```
+
+**Question 4**. Which of the three explanatory variables is the best linear predictor for the response variable minutes played? Use your answers to Questions 1-3 to justify your answer.
+
+## Prediction using a linear model. 
+
+Run the following code chunk to select the player LaMarcus Aldridge, a center for the San Antonio Spurs, and save his stats in a new data frame.
+
+```{r}
+nba_lma <- filter(nba_subset, player == 'LaMarcus Aldridge')
+```
+
+**Question 1**. Run the following code chunk to predict LaMarcus Aldridge's minutes played from his field goal percentage, using the `fieldgoal_linmod` fitted linear model.
+
+```{r}
+predict.lm(fieldgoal_linmod, nba_lma)
+```
+
+**Question 2**. In the following code chunks, predict LaMarcus Aldridge's minutes played from his free throw percentage and three point percentage, using the corresponding linear models we fit in the previous section.
+
+```{r}
+```
+
+```{r}
+```
+
+**Question 3**. Which model gave the most accurate prediction of LaMarcus Aldridge's minutes played?
+
+**Note**. Clearly, it doesn't make sense to choose a model based on which did the best job of predicting LaMarcus Aldridge's minutes, as he is only one player and is unlikely to be representative of the entire NBA. As we will see later,however, the idea of choosing a model based on which model has the highest predictive accuracy is a powerful and widely applied technique. 
+
+## Takeaways
+
+Linear models have dramatic strengths and weaknesses. They are simple to fit and easy to interpret and explain, but they are often not a good fit for data and can be very influenced by outliers. In general, you should probably always try a linear model for a given problem, but it is unlikely that it will be the best fit for the given data. As we will see, many of the more complicated models we study can be viewed as extensions of linaer models.
+
+# Bonus Questions
+
+**Question 1**
+
+For any of the linear models you fitted, compare the square root of the $R^2$ of that linear model to the correlation between that explanatory variable and the response. What do you notice?
+
+**Question 2**
+
+Find the variable in the `nba_subset` data frame which is most correlated with minutes played. In light of the answer to Question 1, we know this must also have the highest $R^2$, and is therefore the best one-variable linear model for predicting minutes played. Despite this, why might choosing this variable not lead to the most interesting final conclusion?
+
+**Question 3**
+
+Execute the following code chunk to create a different subset of the nba data.
+
+```{r}
+nba_subset_2 <- filter_all(nba, all_vars(!is.na(.))) %>% 
+  filter(minutes_played > 200) 
+```
+
+Recreate the linear model of minutes played on three point percentage, and plot the resulting line of best fit. What do you notice about the line? Why did this happen?
+
+**Question 4**
+
+Choose an interesting pair of explanatory and response variables, and repeat the first three sections of this lab with this new pair of variables.
+
+
