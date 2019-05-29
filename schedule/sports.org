@@ -1,0 +1,132 @@
+#+TITLE: SPORTS
+#+AUTHOR: Tartans
+
+* May 14, 2019
+** Sports Camp
+*** LOGISTICS
++ 16 students
++ Some CMU students, very diverse group
++ June 3 - July 26
++ 9:30-11am lectures
++ Speaker/meeting lunches
++ 12-1:30 R tutorials
+*** PLANNING
++ Regression, classification, clustering, graph techniques, 
++ dplyr and ggplot
++ Guest lectures every week
+*** ROLES
++ Rebecca is the facilitator
++ CPM is the lecturer for the mornings
++ TAs learn to code, working through problems
++ Projects are hockey, football, baseball, and perhaps a tennis
++ The final result is a poster or presentation
++ Intro to R lessons
++ Fewer lessons as camp progresses
+*** TOPICS
+*** Vis
++ hex charts, scatter plots, faceting, ggplot, dplyr, time series, 
++ 350 crash course
++ first two weeks - vis, data exploration
++ next two weeks - regression -> clustering -> data mining
++ short, weekly presentations from the students
+*** TODO
++ Find and collect intro to R materials
++ Set up a google drive
++ Get materials for May 22
+* May 22, 2019
+** Tentative schedule
++ 1030am-1200pm morning lecture
++ 200pm-330pm "lab"/ practice
++ Baker Patio lunch on June 3?
++ Advertisement for projects in week 2
++ Start having guest speakers?
+** Materials
++ We are building a website to host our publicly available data
++ summer.stat.cmu.edu/cmsacamp
++ Get Ben's R lectures
++ Do more data vis
++ have a github
+** Students
++ Try to split the skill sets among the groups
++ Having office hours for my group
+** TODO
++ Rebecca and Peter will work on website with CPM
++ Peter will send out 350 lectures
++ Ron will get data sets by end of week
++ Alden and Shannon meeting on Friday to develop lab materials
++ Get the github set up
++ Meet next Wednesday
+* May 24, 2019
+** Intro to R
+** Graphics
+** Modeling
+** Shannon
++ Takes two lectures on graphics for Wednesday
+* May 29, 2019
++ Planning out first week and a half
++ Talk about projects the second Monday
+** Schedule
+*** Week 1
+**** M
+***** Lecture
++ Introductions
++ Icebreakers
++ Court sports
+***** Lab
++ Install R
+
+**** T
+***** Lecture
++ 1d 
+***** Lab
++ vis lab 1
+**** W
+***** Lecture
++ 1d day 2
+***** Lab
++ Dplyr lab
+**** TH
+***** Lecture
++ 2d day 1
+***** Lab
++ vis lab 2
+**** F
+***** Lecture
++ 2d day 2
+***** Lab
++ vis lab 3
+*** Week 2
+**** M
+***** Lecture
++ Intro project presentations
+***** Lab
++ Case study 1 (step through sports articles)
+**** T
+***** Lecture
++ faceting/grouping
+***** Lab
++ vis lab 4
+**** W
+***** Lecture
++ Simple Linear regression
++ Multiple linear regression
++ Interpretations
++ Significance
++ Diagnostics
+***** Lab
++ Regression lab 1 (Alden's)
+**** TH
+***** Lecture
++ Regression lecture 2
+***** Lab
++ Regression lab 2
+**** F 
+***** Lecture
++ Regression 3
+***** Lab
++ Catch up day?
+** Sports data vis
++ Heat maps
++ hexagons
++ time series plots
++ get 2d location data
