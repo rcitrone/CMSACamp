@@ -1,5 +1,5 @@
 ---
-title: "Lab 1"
+title: "Lab 1 : Getting Started with R"
 author: 'Xiaoyi Yang andrew email: xiaoyiy@andrew.cmu.edu'
 date: "June 3, 2019"
 output: html_document
@@ -17,7 +17,7 @@ Running a Rmarkdown file and converting it into a reader-friendly documents requ
 
 ## Install R and R studio
 
-To install R, please go to http://cran.cnr.berkeley.edu/ and choose your system. Choose "base" if this is your first time to install R. If you have R installed but not the latest version and if you are using Mac or Linux, just download the latest installer and install. If you are using Windows, run the following codes. Remember to select the options that copy all the exist packages.  
+To install R, please go to http://cran.cnr.berkeley.edu/ and choose your system. Choose "base" if this is your first time to install R. If you have R installed but not the latest version and if you are using Mac or Linux, just download the latest installer and install. If you are using Windows, run the following codes in R. Remember to select the options that copy all the exist packages.  
 
 ```{r, eval = FALSE}
 if(!require(installr)) {
@@ -32,9 +32,9 @@ To install R Studio, please go to https://www.rstudio.com/products/rstudio/downl
 
 ## Install R packages
 
-R performs a wide variety of functions, such as data manipulation, modeling, and vitualization. However, more functions are included in R packages which write by all the other developers. Using R package can help us easily apply new methods or simplify our own codes.
+R performs a wide variety of functions, such as data manipulation, modeling, and vitualization. However, some useful functions are included in R packages which write by all the other developers. Using R package can help us easily apply new methods or simplify our own codes.
 
-To install a R package, using the function "install.packages" and put the package name in the parentheses and the quote. 
+To install a R package, using the function "install.packages" and put the package name in the parentheses and the quote. Or you can go to "Tools" then "Install Packages" and then input the package name.
 
 ```{r, eval = FALSE}
 install.packages("tidyverse")
@@ -52,13 +52,13 @@ Here is a list of packages that we may need in the following lectures/labs. Plea
 
 ```{r, message=FALSE}
 library(tidyverse)
+library(devtools)
+library(rmarkdown)
+library(knitr)
 library(stringr)
 library(car)
 library(randomForest)
 library(glmnet)
-library(devtools)
-library(rmarkdown)
-library(knitr)
 ```
 
 ## Basic data type and operators
