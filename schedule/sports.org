@@ -130,3 +130,66 @@
 + hexagons
 + time series plots
 + get 2d location data
+* May 31, 2019
+*** Week 1
+**** M
+***** Lecture
++ Introductions
++ Icebreakers
++ Court sports
+***** Lab
++ Install R
+
+**** T
+***** Lecture
++ 1d 
+***** Lab
++ vis lab 1
+**** W
+***** Lecture
++ 1d day 2
+***** Lab
++ Dplyr lab
+**** TH
+***** Lecture
++ 2d day 1
+***** Lab
++ vis lab 2
+**** F
+***** Lecture
++ 2d day 2
+***** Lab
++ vis lab 3
+*** Week 2
+**** M
+***** Lecture
++ Intro project presentations
+***** Lab
++ Case study 1 (step through sports articles)
+**** T
+***** Lecture
++ faceting/grouping
+***** Lab
++ vis lab 4
+**** W
+***** Lecture
++ Simple Linear regression
++ Multiple linear regression
++ Interpretations
++ Significance
++ Diagnostics
+***** Lab
++ Regression lab 1 (Alden's)
+**** TH
+***** Lecture
++ Regression lecture 2
+***** Lab
++ Regression lab 2
+**** F 
+***** Lecture
++ Regression 3
+***** Lab
++ Catch up day?
+** Website
++ Github?
++ How are distributing labs?
