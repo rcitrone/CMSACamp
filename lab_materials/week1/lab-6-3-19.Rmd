@@ -275,7 +275,9 @@ Where the bonus is your self-enlightenment.
 1.  Repeat the above exercises with your favorite team instead of the Pittsburgh Pirates.  Or failing that, the New York Yankees.
 
 
-2.  
+2.  Add meaningful titles and axes labels to the graphs you made in this lab.
+
+3. Change the colors in the radial graphs.
 
 
 
