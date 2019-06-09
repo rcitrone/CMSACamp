@@ -1,0 +1,232 @@
+---
+title: "Visualization Lab 3"
+author: "Sports Camp Crew"
+date: "Tuesday, June 11, 2019"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: paper
+---
+
+Name: Roberto Clemente
+
+Lab html link: [stat.cmu.edu/~sgallagh/lab-week2-tues.html](https://stat.cmu.edu/~sgallagh/lab-week2-tues.html)
+
+Lab download link: [stat.cmu.edu/~sgallagh/lab-week2-tues.Rmd](https://stat.cmu.edu/~sgallagh/lab-week2-tues.Rmd)
+
+
+---
+
+```{R, echo = FALSE}
+knitr::opts_chunk$set(cache=TRUE, message = FALSE, warning = FALSE) 
+```
+
+
+# Histograms, density estimates, faceting, and more
+
+## Warm up: Women's World Cup
+
+The [FIFA Women's World Cup](https://www.fifa.com/womensworldcup/matches/) is currently ongoing in France.  **You want to figure out what are the plays that lead to high probability scoring chances.**  Fortunately, you have a database with player and ball location in terms of (x,y,z) coordinates for every second in a match for over 500 matches.
+
+
+1. How do you define a scoring chance?  That is, what attributes of the players and the ball factor in this.  Do need any supplemental data? 
+
+2. How would you visualize high probability scoring chances?
+
+3. Would you do anything different to visualize corner kicks?
+
+4. You have too much data to deal with comfortably.  How would you deal with sparsity of high scoring chances?  That is, how do you filter out data that is fairly meaningless in terms of scoring?  
+
+
+## Basketball
+
+Ron has provided us with basketball data.  Load it into `R`.
+
+```{R, warning = FALSE, message = FALSE}
+bball <- read.csv("https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ")
+library(tidyverse)
+```
+
+In this basketball data set, each row corresponds to one player and one team.  More info about the data set is found [here](https://github.com/ryurko/CMSACamp/tree/master/data/intro_r).
+
+**Question 1**.
+
+The first steps you should take are always to verify that your data looks how you expect it to.  Describe in words what each of the following commands does and how it helps you figure out what is happening in the data.
+
+
+
+```{R, warning = FALSE, message = FALSE}
+dim(bball)
+
+colnames(bball)
+
+table(bball$team)
+
+table(bball$position, bball$age)
+
+range(bball$minutes_played)
+
+unique(bball$team)
+
+sum(is.na(bball))
+
+summary(bball$personal_fouls)
+
+bball[which.max(bball$minutes_played),]
+```
+
+
+**Question 2.**
+
+Since some players are split across multiple rows, let us combine the two.
+
+```{R}
+bball_cmb <-  bball %>% group_by(player) %>% select(-c(team, position)) %>%
+  summarize_all(funs(sum), na.rm = TRUE)
+
+dim(bball_cmb)
+
+```
+
+What happens if you remove `position` from the select (here being used as a "drop" option)?
+
+**Question 3.**
+
+How can you verify that the above manipulations worked properly?  For example, does every player appear only once?  Do the combined stats make sense?  Did you remove (combine) the proper number of players?
+
+```{R}
+## Your code here
+```
+
+**Question 4.**
+
+We actually want to look at players by position, so we will use the selection without position.
+
+```{R}
+bball_cmb <-  bball %>% group_by(player, position) %>% select(-c(team)) %>%
+  summarize_all(funs(sum), na.rm = TRUE)
+
+```
+
+How many players are recorded playing more than one position?
+
+**Question 5.**
+
+Let's make a histogram of the distribution of minutes played.
+
+```{R}
+ggplot(data = bball_cmb, aes(x = minutes_played)) + geom_histogram()
+```
+
+Let's only look at players in the 50th quantile of minutes played and above.
+
+```{R}
+lower_q <- quantile(bball_cmb$minutes_played, .5)
+bball_50 <- bball_cmb %>% filter(minutes_played >= lower_q)
+ggplot(data = bball_50, aes(x = minutes_played)) + geom_histogram()
+```
+
+How would you describe this distribution?
+
+**Question 6.**
+
+We now want to look at distribution of different stats by position.  We can use this using the `facet_wrap()` or `facet_grid()` functions.
+
+```{R}
+ggplot(data = bball_50, aes(x = two_pointers)) + geom_histogram() + facet_wrap(~position)
+```
+
+How do these distributions compare to one another?
+
+**Question 7.**
+
+We have the luxury of having enough space in our facet labels to use the full words instead of the abbrevations.  The easiest way to do this is with the `forcats` package, which is part of the tidyverse and is used to manipulate factor variables.
+
+```{R}
+bball_rename <- bball_50 %>% mutate(position = fct_recode(position, Center = "C")) 
+## Fill in the rest of the code here
+```
+
+Can you rename the rest of the abbreviations?
+
+**Question 8.**
+
+We can set the `fill` aesthetic of the histogram to color them according to player position
+
+```{R}
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position)) + geom_histogram() + facet_wrap(~position, ncol = 2)
+
+```
+
+What happens if you additionally add a `color` aesthetic?  What if you add `color=` outside of `aes`?
+
+```{R}
+## Change code here
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position)) + geom_histogram() + facet_wrap(~position, ncol = 3)
+
+```
+
+**Question 9.**
+
+Can you change the colors, axes labels, and title of this plot?  (Hint: look at `scale_fill_discrete()` or `scale_fill_manual()` for the color of the fill.)
+
+```{R}
+## Change code here
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position)) + geom_histogram() + facet_wrap(~position, ncol = 3)
+
+```
+
+**Question 9.**
+
+We can instead look at a density estimate instead of counts.  This becomes useful if for instance, we wanted to compare different seasons or we add a density estimate which we do here.
+
+```{R}
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position)) + 
+  geom_histogram(aes(y = ..density..)) + 
+  geom_density(fill = NA) +
+  facet_wrap(~position, ncol = 3) 
+
+```
+
+Do you think these density estimates fit the data well?  Why or why not?
+
+**Question 9.** 
+
+It might not to be fair distributions together if the sample size in one of the groups is small.  Let's print the number of observations in each histogram.
+
+```{R}
+
+df2 <- bball_rename %>% group_by(position) %>% tally()
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position, group = position)) + 
+  geom_histogram(aes(y = ..density..)) + 
+  geom_density(fill = NA) +
+  facet_wrap(~position, ncol = 3) +
+  geom_text(data = df2, x = 500, y = .006, aes(label = paste0("n = ", n)))
+
+```
+
+Do you feel more sure about your previous conclusions?
+
+**Question 10**.
+
+Let's separate players into two age groups, below and including 30 years, and above 30 years old.  Can you make a new variable for this?  Call your variable `age_group` and your new data frame `bball_age`.
+
+
+```{R}
+
+
+```
+
+**Question 11.**
+
+We can facet by more than one variable!  Uncomment the code to get it to run (provided you have answered the above question).
+
+```{R}
+##ggplot(data = bball_age, aes(x = two_pointers)) +
+##  facet_wrap(age_group~position)
+```
+
+Can you add labels, titles, and appropriate legends to the above graph?
+
+## Density maps
