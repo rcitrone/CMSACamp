@@ -229,4 +229,35 @@ We can facet by more than one variable!  Uncomment the code to get it to run (pr
 
 Can you add labels, titles, and appropriate legends to the above graph?
 
-## Density maps
+
+**Question 12.**  There are alternatives to faceting, which we explore here.  Can you think of situations where you would use one over the other?
+
+```{R}
+## The stacked histogram
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position)) + 
+  geom_histogram(aes(y = ..density..))
+
+## The overlaid histograms
+ggplot(data = bball_rename, aes(x = two_pointers, fill = position, col = position)) + 
+  geom_histogram(aes(y = ..density..), position = "identity", alpha = .3) 
+
+```
+
+
+## Bonus exercises
+
+Where the bonus is being a life long learner.
+
+1. Make a variable for our combined data frame with the variable `total_points` which is the sum of the two pointers, three pointers, and field goals.
+
+2. Make a histogram of `total_points` along with a density estimate.  Describe the distribution in words.  Can you identify people in the right tail?
+
+3.  Pick 5 teams.  Make a histogram of `total_points` and facet the `total_points` by these five teams.  (Hint: Make a new variable where if the team is not one of the five you select you get a NA value.  Alternatively, first subset the full data to these 5 teams.)
+
+4. Display the facets in one long column.  Hint:  look at `?facet_wrap`
+
+5.  Now find the top scoring team and lowest scoring team (cumulatively).
+
+6.  Subset the data to these two teams.  Compare the distributions of `total_points` along with `turnovers` and `defensive_rebounds`.
+
+7.  Who is the most valuable player for the Washington Wizards for this year?  Provide evidence using both words and graphs.
