@@ -3,15 +3,15 @@
 This folder contains the intro datasets generated via the [`init_intro_r_data.R`](https://github.com/ryurko/CMSACamp/blob/master/R/init_intro_r_data.R)
 script. The two files so far are:
 
-* [mlb_teams_data.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/mlb_teams_data.csv?token=AFKSV7BGJHKW3W72AMN2K5C453U7Q) - team data for each season going back to 1871, courtesy of the [`Lahman` package](https://cran.r-project.org/web/packages/Lahman/index.html),
-* [nba_2019_player_stats.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ) - player statistics from the 2019 NBA season, courtesy of [basketball-reference](https://www.basketball-reference.com/leagues/NBA_2019_totals.html).
+* [mlb_teams_data.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/mlb_teams_data.csv) - team data for each season going back to 1871, courtesy of the [`Lahman` package](https://cran.r-project.org/web/packages/Lahman/index.html),
+* [nba_2019_player_stats.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv) - player statistics from the 2019 NBA season, courtesy of [basketball-reference](https://www.basketball-reference.com/leagues/NBA_2019_totals.html).
 
 Both of these datasets have variables necessary for generating a variety of plots,
 as well as demonstrating how to perform the basic split-apply-combine operations.
 
 # MLB teams data
 
-Each row in the [mlb_teams_data.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/mlb_teams_data.csv?token=AFKSV7BGJHKW3W72AMN2K5C453U7Q) dataset corresponds to a single team in a single
+Each row in the [mlb_teams_data.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/mlb_teams_data.csv) dataset corresponds to a single team in a single
 season. The column names are self-explanatory, organized below by the type of
 information they contain:
 
@@ -31,7 +31,7 @@ of statistics to practice `R` operations like:
 
 # NBA 2019 player stats
 
-Each row in the [nba_2019_player_stats.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ) dataset corresponds to a single player
+Each row in the [nba_2019_player_stats.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv) dataset corresponds to a single player
 with a single team during the 2019 season. Since players can switch teams during
 the course of the season, this means a single player can have more than one row,
 e.g. Nikola Mirotic has two rows since he played for NOP and MIL this season. 
