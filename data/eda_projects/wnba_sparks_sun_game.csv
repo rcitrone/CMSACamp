@@ -1,0 +1,213 @@
+period,clock,las_score,con_score,description,team,event,x_loc,y_loc,field_goal_type,shot_made,assisted,shooting_foul,distance_from_hoop
+1,09:40,2,0,[LAS 2-0] Ogwumike Jump Shot: Made (2 PTS) Assist: Wiese (1 AST),las,field_goal_attempt,142,111,two_pointer,0,1,0,18.023595645708433
+1,09:22,2,0,[CON] Jones Driving Layup Shot: Missed,con,field_goal_attempt,49,8,two_pointer,1,0,0,4.964876634922565
+1,09:17,2,0,[CON] Stricklen 3pt Shot: Missed,con,field_goal_attempt,-1,280,three_pointer,1,0,0,28.000178570859152
+1,09:02,2,0,[LAS] Wiese 3pt Shot: Missed,las,field_goal_attempt,164,186,three_pointer,1,0,0,24.797580527140145
+1,08:43,2,0,[CON] Thomas Driving Floating Jump Shot: Missed,con,field_goal_attempt,-8,81,two_pointer,1,0,0,8.139410298049853
+1,08:19,2,0,[LAS] Gray 3pt Shot: Missed,las,field_goal_attempt,-163,176,three_pointer,1,0,0,23.988538930080757
+1,08:10,2,0,[CON] Thomas Turnover : Out of Bounds - Bad Pass Turnover (1 TO),con,turnover,119,60,NA,0,0,0,13.32704018152568
+1,07:51,4,0,[LAS 4-0] Ruffin-Pratt Jump Shot: Made (2 PTS) Assist: Ogwumike (1 AST),las,field_goal_attempt,145,23,two_pointer,0,1,0,14.681280598094977
+1,07:33,4,2,[CON 2-4] Thomas Driving Finger Roll Layup Shot: Made (2 PTS),con,field_goal_attempt,25,5,two_pointer,0,1,0,2.5495097567963922
+1,07:11,4,2,[LAS] Ogwumike Jump Shot: Missed,las,field_goal_attempt,26,146,two_pointer,1,0,0,14.829699929533302
+1,07:03,4,2,[LAS] Ogwumike Foul: Personal (1 PF),las,foul,-109,-4,NA,0,0,0,10.907336980216574
+1,06:56,4,4,[CON 4-4] Williams Fadeaway Jump Shot: Made (2 PTS),con,field_goal_attempt,130,90,two_pointer,0,1,0,15.811388300841896
+1,06:36,4,4,[LAS] Ruffin-Pratt Jump Shot: Missed,las,field_goal_attempt,100,148,two_pointer,1,0,0,17.861690849412884
+1,06:29,4,6,[CON 6-4] Thomas Running Layup Shot: Made (4 PTS) Assist: Thomas (1 AST),con,field_goal_attempt,21,7,two_pointer,0,1,0,2.2135943621178655
+1,06:09,4,6,[LAS] Gray Jump Shot: Missed Block: Thomas (1 BLK),las,field_goal_attempt,1,208,two_pointer,1,0,0,20.800240383226345
+1,06:00,4,6,[CON] Thomas 3pt Shot: Missed,con,field_goal_attempt,148,190,three_pointer,1,0,0,24.084019598065435
+1,05:53,4,6,[CON] Stricklen Foul: Personal (1 PF),con,foul,143,115,NA,0,0,0,18.350476833041697
+1,05:44,6,6,[LAS 6-6] Wiese Jump Shot: Made (2 PTS) Assist: Gray (1 AST),las,field_goal_attempt,7,185,two_pointer,0,1,0,18.513238506539043
+1,05:30,6,8,[CON 8-6] Williams Pullup Jump shot: Made (4 PTS) Assist: Jones (1 AST),con,field_goal_attempt,28,164,two_pointer,0,1,0,16.637307474468336
+1,05:15,6,8,[LAS] Ogwumike Turnover : Bad Pass (1 TO) Steal:Thomas (1 ST),las,turnover,-63,199,NA,0,0,0,20.873428084528904
+1,05:15,6,8,[LAS] Gray Foul: Personal (1 PF),las,foul,67,506,NA,0,0,0,51.041649659861115
+1,04:51,6,8,[CON] Thomas Driving Hook Shot: Missed,con,field_goal_attempt,-47,85,two_pointer,1,0,0,9.712878049270463
+1,04:48,6,8,[LAS] Ogwumike Foul: Shooting (1 PF) (2 FTA),las,foul,-24,69,NA,0,0,1,7.305477397131552
+1,04:26,6,10,[LAS] Gray Turnover : Lost Ball (1 TO) Steal:Thomas (2 ST),las,turnover,17,189,NA,0,0,0,18.976301009416982
+1,04:20,6,12,[CON 12-6] Stricklen Running Layup Shot: Made (2 PTS) Assist: Thomas (2 AST),con,field_goal_attempt,21,15,two_pointer,0,1,0,2.5806975801127883
+1,04:09,6,12,[LAS] Ruffin-Pratt Turnover : Bad Pass (1 TO) Steal:Thomas (3 ST),las,turnover,132,266,NA,0,0,0,29.6951174437819
+1,04:02,6,14,[CON 14-6] Thomas Running Finger Roll Layup Shot: Made (6 PTS),con,field_goal_attempt,15,12,two_pointer,0,1,0,1.9209372712298547
+1,03:49,6,14,[LAS] Wiese 3pt Shot: Missed,las,field_goal_attempt,-228,38,three_pointer,1,0,0,23.114497615133235
+1,03:39,6,14,[CON] Thomas 3pt Shot: Missed,con,field_goal_attempt,139,214,three_pointer,1,0,0,25.518032839543096
+1,03:36,6,14,[CON] Thomas Putback Layup Shot: Missed,con,field_goal_attempt,0,-5,two_pointer,1,0,0,0.5
+1,03:34,6,14,[LAS] Gray Foul: Loose Ball (2 PF),las,foul,-36,51,NA,0,0,0,6.2425956140054435
+1,03:24,6,16,[CON 16-6] Banham Floating Jump shot: Made (2 PTS),con,field_goal_attempt,61,18,two_pointer,0,1,0,6.360031446463138
+1,03:13,6,16,[LAS] Ogwumike Turnover : Out of Bounds - Bad Pass Turnover (2 TO),las,turnover,143,124,NA,0,0,0,18.9274932307477
+1,02:58,6,16,[CON] Thomas Jump Shot: Missed,con,field_goal_attempt,0,156,two_pointer,1,0,0,15.6
+1,02:53,6,16,[LAS] Ogwumike Turnover : Bad Pass (3 TO) Steal:Thomas (4 ST),las,turnover,56,747,NA,0,0,0,74.90961220030444
+1,02:32,6,16,[CON] Banham Turnover : Lost Ball (1 TO) Steal:Jones (1 ST),con,turnover,6,201,NA,0,0,0,20.108953229842673
+1,02:22,8,16,[LAS 8-16] Mabrey Layup Shot: Made (2 PTS) Assist: Jones (1 AST),las,field_goal_attempt,28,6,two_pointer,0,1,0,2.8635642126552705
+1,02:18,8,16,[CON] Thomas Jump Shot: Missed,con,field_goal_attempt,-69,29,two_pointer,1,0,0,7.484650960465692
+1,02:10,11,16,[LAS 11-16] Mabrey 3pt Shot: Made (5 PTS) Assist: Ruffin-Pratt (1 AST),las,field_goal_attempt,193,155,three_pointer,0,1,0,24.753585598858198
+1,01:59,11,19,[CON 19-11] Jones 3pt Shot: Made (3 PTS) Assist: Clarendon (1 AST),con,field_goal_attempt,-22,266,three_pointer,0,1,0,26.690822392725185
+1,01:39,11,19,[LAS] Brown Driving Layup Shot: Missed Block: Jones (1 BLK),las,field_goal_attempt,59,15,two_pointer,1,0,0,6.087692502089769
+1,01:22,11,19,[CON] Banham Pullup Jump shot: Missed,con,field_goal_attempt,164,64,two_pointer,1,0,0,17.604544867732308
+1,01:11,11,21,[CON 21-11] Williams Driving Layup Shot: Made (6 PTS) Assist: Clarendon (2 AST),con,field_goal_attempt,2,50,two_pointer,0,1,0,5.0039984012787215
+1,00:52.4,11,21,[LAS] Brown Driving Floating Jump Shot: Missed,las,field_goal_attempt,-113,4,two_pointer,1,0,0,11.307077429645558
+1,00:39.6,11,23,[CON 23-11] Williams Driving Floating Jump Shot: Made (8 PTS) Assist: Thomas (3 AST),con,field_goal_attempt,-79,4,two_pointer,0,1,0,7.910120100226039
+1,00:15.6,11,23,[LAS] Mabrey 3pt Shot: Missed,las,field_goal_attempt,-153,188,three_pointer,1,0,0,24.239018131929356
+1,00:15.6,11,23,[LAS] Team Turnover : Shot Clock Turnover,las,turnover,-121,220,NA,0,0,0,25.10796686312932
+1,00:01.0,11,23,[CON] Clarendon Layup Shot: Missed,con,field_goal_attempt,67,29,two_pointer,1,0,0,7.3006848993775915
+2,09:47,11,23,[CON] Jones Turnover : Bad Pass (1 TO) Steal:Mabrey (1 ST),con,turnover,44,104,NA,0,0,0,11.292475370794484
+2,09:37,11,23,[LAS] Walker 3pt Shot: Missed,las,field_goal_attempt,-115,237,three_pointer,1,0,0,26.34274093559742
+2,09:18,11,23,[CON] Williams Pullup Jump shot: Missed,con,field_goal_attempt,-20,147,two_pointer,1,0,0,14.835430563350696
+2,09:12,11,23,[LAS] Walker Driving Layup Shot: Missed Block: Tuck (1 BLK),las,field_goal_attempt,56,4,two_pointer,1,0,0,5.61426753904728
+2,09:10,13,23,[LAS 13-23] Walker Putback Layup Shot: Made (2 PTS),las,field_goal_attempt,0,-5,two_pointer,0,1,0,0.5
+2,08:51,13,25,[CON 25-13] Williams Driving Layup Shot: Made (10 PTS),con,field_goal_attempt,28,10,two_pointer,0,1,0,2.973213749463701
+2,08:34,15,25,[LAS 15-25] Wiese Driving Layup Shot: Made (4 PTS) Assist: Walker (1 AST),las,field_goal_attempt,34,16,two_pointer,0,1,0,3.757658845611187
+2,08:20,15,25,[CON] Tuck 3pt Shot: Missed,con,field_goal_attempt,-145,216,three_pointer,1,0,0,26.015572259706303
+2,08:12,15,25,[LAS] Mabrey 3pt Shot: Missed,las,field_goal_attempt,-131,215,three_pointer,1,0,0,25.176576415390556
+2,08:04,15,25,[LAS] Brown Turnover : Lost Ball (1 TO) Steal:Jones (1 ST),las,turnover,-37,234,NA,0,0,0,23.69071548096427
+2,07:46,15,25,[CON] Jones Jump Shot: Missed,con,field_goal_attempt,10,195,two_pointer,1,0,0,19.525624189766635
+2,07:38,15,25,[LAS] Brown Turnover : Out of Bounds Lost Ball Turnover (2 TO),las,turnover,-58,36,NA,0,0,0,6.826419266350405
+2,07:26,15,25,[LAS] Jones Foul: Personal (1 PF),las,foul,-63,80,NA,0,0,0,10.182828683622247
+2,07:17,15,27,[CON 27-15] Tuck Driving Layup Shot: Made (2 PTS) Assist: Williams (1 AST),con,field_goal_attempt,39,37,two_pointer,0,1,0,5.375872022286245
+2,07:07,15,27,[CON] Thomas Foul: Shooting (1 PF) (2 FTA),con,foul,-30,43,NA,0,0,1,5.243090691567332
+2,06:52,17,27,[CON] Jones Driving Layup Shot: Missed Block: Mabrey (1 BLK),con,field_goal_attempt,-53,16,two_pointer,1,0,0,5.5362442142665635
+2,06:45,17,27,[CON] Tuck Jump Shot: Missed,con,field_goal_attempt,-45,162,two_pointer,1,0,0,16.813387523042465
+2,06:41,17,27,[LAS] Mabrey Foul: Shooting (1 PF) (2 FTA),las,foul,-12,49,NA,0,0,1,5.044799302251776
+2,06:30,17,29,[CON] Tuck Foul: Defense 3 Second (1 PF) (1 FTA),con,foul,0,-80,NA,0,0,0,8
+2,06:24,18,29,[LAS] Mabrey Layup Shot: Missed Block: Jones (1 BLK),las,field_goal_attempt,-3,21,two_pointer,1,0,0,2.1213203435596424
+2,06:15,18,29,[LAS] Mabrey Layup Shot: Missed Block: Jones (2 BLK),las,field_goal_attempt,54,17,two_pointer,1,0,0,5.661271941887265
+2,06:05,18,29,[CON] Clarendon Turnover : Lost Ball (1 TO) Steal:Ogwumike (1 ST),con,turnover,95,134,NA,0,0,0,16.42589419179364
+2,05:59,18,29,[CON] Jones Foul: Personal (1 PF),con,foul,-6,31,NA,0,0,0,3.157530680769389
+2,05:51,20,29,[LAS 20-29] Ogwumike Jump Shot: Made (2 PTS) Assist: Gray (2 AST),las,field_goal_attempt,12,169,two_pointer,0,1,0,16.942549985170473
+2,05:34,20,29,[CON] Jones Turnover : Lost Ball (2 TO) Steal:Ogwumike (1 ST),con,turnover,115,104,NA,0,0,0,15.505160431288676
+2,05:23,20,29,[LAS] Ogwumike Foul: Offensive Charge (2 PF),las,foul,107,26,NA,0,0,0,11.01135777277262
+2,05:23,20,29,[LAS] Ogwumike Turnover : Offensive Foul Turnover (4 TO),las,turnover,107,26,NA,0,0,0,11.01135777277262
+2,05:13,20,29,[CON] Jones 3pt Shot: Missed,con,field_goal_attempt,-109,247,three_pointer,1,0,0,26.99814808463721
+2,04:57,22,29,[LAS 22-29] Gray Fadeaway Jump Shot: Made (2 PTS),las,field_goal_attempt,6,121,two_pointer,0,1,0,12.11486689980538
+2,04:41,22,31,[CON 31-22] Jones Cutting Layup Shot: Made (5 PTS) Assist: Thomas (4 AST),con,field_goal_attempt,24,-5,two_pointer,0,1,0,2.4515301344262523
+2,04:28,22,31,[LAS] Ogwumike Turnover : Lost Ball (5 TO) Steal:Thomas (1 ST),las,turnover,-115,138,NA,0,0,0,17.963574254585307
+2,04:24,22,33,[CON 33-22] Williams Running Layup Shot: Made (12 PTS) Assist: Thomas (1 AST),con,field_goal_attempt,-42,1,two_pointer,0,1,0,4.201190307520001
+2,04:07,22,33,[LAS] Gray Pullup Jump shot: Missed Block: Williams (1 BLK),las,field_goal_attempt,50,108,two_pointer,1,0,0,11.901260437449473
+2,04:00,22,35,[CON 35-22] Thomas Running Layup Shot: Made (4 PTS),con,field_goal_attempt,-3,35,two_pointer,0,1,0,3.5128336140500593
+2,03:34,22,35,[LAS] Ruffin-Pratt 3pt Shot: Missed,las,field_goal_attempt,-27,229,three_pointer,1,0,0,23.058620947489466
+2,03:33,22,35,[LAS] Team Turnover : Shot Clock Turnover,las,turnover,150,200,NA,0,0,0,25
+2,03:21,22,35,[CON] Thomas Driving Layup Shot: Missed,con,field_goal_attempt,-46,64,two_pointer,1,0,0,7.881624198095213
+2,03:16,22,35,[CON] Williams Driving Layup Shot: Missed,con,field_goal_attempt,49,6,two_pointer,1,0,0,4.9365980188789935
+2,03:04,24,35,[LAS 24-35] Ogwumike Layup Shot: Made (5 PTS),las,field_goal_attempt,32,16,two_pointer,0,1,0,3.577708763999664
+2,02:48,24,35,[CON] Jones Turnover : Bad Pass (3 TO) Steal:Ogwumike (2 ST),con,turnover,33,88,NA,0,0,0,9.398404119849285
+2,02:41,27,35,[LAS 27-35] Wiese 3pt Shot: Made (7 PTS) Assist: Gray (3 AST),las,field_goal_attempt,-195,167,three_pointer,0,1,0,25.673721974034073
+2,02:26,27,35,[LAS] Ogwumike Foul: Shooting (3 PF) (2 FTA),las,foul,-74,64,NA,0,0,1,9.783659846908007
+2,02:07,27,36,[LAS] Ruffin-Pratt Turnover : Lost Ball (2 TO) Steal:Thomas (2 ST),las,turnover,56,49,NA,0,0,0,7.441102068914255
+2,01:58,27,38,[CON 38-27] Thomas Running Layup Shot: Made (7 PTS),con,field_goal_attempt,-30,7,two_pointer,0,1,0,3.0805843601498726
+2,01:44,29,38,[LAS 29-38] Ogwumike Jump Shot: Made (4 PTS) Assist: Ruffin-Pratt (2 AST),las,field_goal_attempt,19,64,two_pointer,0,1,0,6.676076692189808
+2,01:14,29,38,[CON] Stricklen 3pt Shot: Missed,con,field_goal_attempt,194,196,three_pointer,1,0,0,27.57752708275345
+2,01:14,29,38,[CON] Team Turnover : Shot Clock Turnover,con,turnover,191,174,NA,0,0,0,25.83737602776257
+2,01:06,29,38,[LAS] Gray 3pt Shot: Missed,las,field_goal_attempt,141,235,three_pointer,1,0,0,27.40547390577291
+2,00:55.0,29,41,[CON 41-29] Stricklen 3pt Shot: Made (5 PTS) Assist: Thomas (5 AST),con,field_goal_attempt,-239,15,three_pointer,0,1,0,23.94702486740263
+2,00:44.2,29,41,[CON] Stricklen Foul: Shooting (2 PF) (3 FTA),con,foul,197,181,NA,0,0,1,26.752569970004753
+2,00:23.3,32,41,[CON] Thomas Driving Hook Shot: Missed Block: Ogwumike (1 BLK),con,field_goal_attempt,-47,65,two_pointer,1,0,0,8.02122185206219
+2,00:22.8,32,41,[LAS] Walker Foul: Shooting (1 PF) (2 FTA),las,foul,33,40,NA,0,0,1,5.185556864985669
+2,00:01.0,32,43,[LAS] Wiese 3pt Shot: Missed,las,field_goal_attempt,-97,258,three_pointer,1,0,0,27.56320010448714
+3,09:42,32,43,[CON] Thomas Turnover : Bad Pass (2 TO) Steal:Ruffin-Pratt (1 ST),con,turnover,200,171,NA,0,0,0,26.313684652666947
+3,09:27,32,43,[LAS] Ogwumike Driving Hook Shot: Missed,las,field_goal_attempt,-3,67,two_pointer,1,0,0,6.706713054842886
+3,09:14,32,46,[CON 46-32] Thomas 3pt Shot: Made (9 PTS) Assist: Williams (2 AST),con,field_goal_attempt,169,202,three_pointer,0,1,0,26.337235997727625
+3,08:46,32,46,[LAS] Ruffin-Pratt Pullup Jump shot: Missed,las,field_goal_attempt,2,92,two_pointer,1,0,0,9.202173656261872
+3,08:31,32,46,[CON] Thomas Driving Floating Jump Shot: Missed,con,field_goal_attempt,7,65,two_pointer,1,0,0,6.5375836514724615
+3,08:22,32,46,[CON] Stricklen Foul: Shooting (3 PF) (2 FTA),con,foul,74,97,NA,0,0,1,12.200409829181968
+3,08:03,34,48,[CON 48-34] Jones Step Back Jump shot: Made (9 PTS) Assist: Stricklen (1 AST),con,field_goal_attempt,82,89,two_pointer,0,1,0,12.101652779682617
+3,07:49,34,48,[LAS] Wiese 3pt Shot: Missed,las,field_goal_attempt,-109,247,three_pointer,1,0,0,26.99814808463721
+3,07:45,34,48,[CON] Williams Jump Shot: Missed,con,field_goal_attempt,74,117,two_pointer,1,0,0,13.843771162512041
+3,07:43,34,48,[LAS] Ogwumike Jump Shot: Missed Block: Jones (2 BLK),las,field_goal_attempt,-14,77,two_pointer,1,0,0,7.826237921249264
+3,07:43,34,48,[LAS] Ogwumike Jump Shot: Missed Block: Jones (3 BLK),las,field_goal_attempt,-4,77,two_pointer,1,0,0,7.710382610480495
+3,07:31,34,48,[LAS] Gray Jump Shot: Missed,las,field_goal_attempt,105,185,two_pointer,1,0,0,21.27204738618265
+3,07:10,34,48,[CON] Jones Step Back Jump shot: Missed,con,field_goal_attempt,169,40,two_pointer,1,0,0,17.366922582887273
+3,06:56,34,48,[CON] Thomas Foul: Personal (2 PF),con,foul,109,146,NA,0,0,0,18.220043907740727
+3,06:46,34,48,[LAS] Mabrey Driving Finger Roll Layup Shot: Missed,las,field_goal_attempt,-54,38,two_pointer,1,0,0,6.603029607687671
+3,06:44,36,48,[LAS 36-48] Ogwumike Putback Layup Shot: Made (6 PTS),las,field_goal_attempt,0,-5,two_pointer,0,1,0,0.5
+3,06:31,36,48,[CON] Williams Jump Shot: Missed Block: Wiese (1 BLK),con,field_goal_attempt,1,162,two_pointer,1,0,0,16.200308639035246
+3,06:25,36,50,[CON 50-36] Jones Putback Layup Shot: Made (11 PTS),con,field_goal_attempt,0,-5,two_pointer,0,1,0,0.5
+3,06:17,38,50,[LAS 38-50] Ogwumike Driving Layup Shot: Made (8 PTS) Assist: Wiese (2 AST),las,field_goal_attempt,7,37,two_pointer,0,1,0,3.7656340767525465
+3,06:17,38,50,[CON] Thomas Foul: Shooting (1 PF) (1 FTA),con,foul,7,37,NA,0,0,1,3.7656340767525465
+3,06:02,38,52,[CON 52-38] Jones Driving Layup Shot: Made (13 PTS) Assist: Thomas (2 AST),con,field_goal_attempt,45,14,two_pointer,0,1,0,4.712748667179271
+3,05:52,40,52,[LAS 40-52] Ogwumike Cutting Layup Shot: Made (7 PTS) Assist: Wiese (3 AST),las,field_goal_attempt,-46,-4,two_pointer,0,1,0,4.617358552246078
+3,05:31,40,55,[CON 55-40] Stricklen 3pt Shot: Made (8 PTS) Assist: Thomas (3 AST),con,field_goal_attempt,-229,63,three_pointer,0,1,0,23.750789460563198
+3,05:14,40,55,[LAS] Ogwumike Driving Layup Shot: Missed Block: Jones (4 BLK),las,field_goal_attempt,60,15,two_pointer,1,0,0,6.18465843842649
+3,04:52,40,57,[CON 57-40] Thomas Driving Layup Shot: Made (11 PTS),con,field_goal_attempt,53,3,two_pointer,0,1,0,5.308483775994799
+3,04:34,43,57,[LAS 43-57] Mabrey 3pt Shot: Made (11 PTS) Assist: Wiese (4 AST),las,field_goal_attempt,174,168,three_pointer,0,1,0,24.186773244895647
+3,04:19,43,59,[CON 59-43] Stricklen Cutting Layup Shot: Made (10 PTS) Assist: Jones (2 AST),con,field_goal_attempt,25,15,two_pointer,0,1,0,2.9154759474226504
+3,04:11,43,59,[LAS] Mabrey 3pt Shot: Missed,las,field_goal_attempt,-192,206,three_pointer,1,0,0,28.160255680657446
+3,03:57,43,61,[CON 61-43] Jones Cutting Layup Shot: Made (15 PTS) Assist: Thomas (6 AST),con,field_goal_attempt,29,15,two_pointer,0,1,0,3.2649655434629015
+3,03:57,43,61,[LAS] Wiese Foul: Shooting (1 PF) (1 FTA),las,foul,29,15,NA,0,0,1,3.2649655434629015
+3,03:44,43,62,[CON] Stricklen Foul: Personal (4 PF),con,foul,108,67,NA,0,0,0,12.70944530654269
+3,03:33,43,62,[LAS] Gray Turnover : Bad Pass (2 TO) Steal:Thomas (3 ST),las,turnover,-64,92,NA,0,0,0,11.20714058089752
+3,03:28,43,62,[CON] Williams Cutting Layup Shot: Missed,con,field_goal_attempt,-48,36,two_pointer,1,0,0,6
+3,03:22,43,64,[CON 64-43] Jones Putback Layup Shot: Made (18 PTS),con,field_goal_attempt,0,-5,two_pointer,0,1,0,0.5
+3,03:16,46,64,[LAS 46-64] Mabrey 3pt Shot: Made (14 PTS) Assist: Ogwumike (1 AST),las,field_goal_attempt,-193,161,three_pointer,0,1,0,25.13364279208249
+3,03:03,46,64,[CON] Thomas Turnover : Out of Bounds Lost Ball Turnover (3 TO),con,turnover,12,40,NA,0,0,0,4.17612260356422
+3,02:49,46,64,[LAS] Wiese 3pt Shot: Missed,las,field_goal_attempt,170,177,three_pointer,1,0,0,24.541597340026584
+3,02:47,48,64,[LAS 48-64] Ogwumike Putback Layup Shot: Made (9 PTS),las,field_goal_attempt,0,-5,two_pointer,0,1,0,0.5
+3,02:29,48,64,[CON] Thomas Turnover : Bad Pass (4 TO) Steal:Ogwumike (2 ST),con,turnover,-155,198,NA,0,0,0,25.14537730876194
+3,02:25,50,64,[LAS 50-64] Ogwumike Running Layup Shot: Made (10 PTS),las,field_goal_attempt,-32,5,two_pointer,0,1,0,3.23882694814033
+3,02:05,50,64,[LAS] Wiese Foul: Shooting (2 PF) (2 FTA),las,foul,-13,161,NA,0,0,1,16.152399202595262
+3,02:01,50,65,[CON] Williams Layup Shot: Missed,con,field_goal_attempt,40,44,two_pointer,1,0,0,5.946427498927402
+3,01:50,50,65,[CON] Clarendon Jump Shot: Missed,con,field_goal_attempt,111,97,two_pointer,1,0,0,14.741099009232656
+3,01:46,50,65,[CON] Tuck 3pt Shot: Missed,con,field_goal_attempt,-182,172,three_pointer,1,0,0,25.04156544627352
+3,01:44,50,65,[CON] Jones Foul: Loose Ball (2 PF) (2 FTA),con,foul,32,762,NA,0,0,0,76.26716200305346
+3,01:30,52,65,[CON] Williams Jump Shot: Missed,con,field_goal_attempt,-2,146,two_pointer,1,0,0,14.601369798755183
+3,01:24,52,65,[CON] Thomas Turnover : Bad Pass (5 TO) Steal:Brown (1 ST),con,turnover,140,-32,NA,0,0,0,14.361058456812994
+3,01:18,52,65,[LAS] Gray Turnover : Out of Bounds Lost Ball Turnover (3 TO),las,turnover,-225,64,NA,0,0,0,23.392520172055
+3,00:56.0,52,65,[CON] Tuck Turnover : Out of Bounds - Bad Pass Turnover (1 TO),con,turnover,-48,52,NA,0,0,0,7.076722405181653
+3,00:39.3,52,65,[LAS] Walker 3pt Shot: Missed,las,field_goal_attempt,-232,7,three_pointer,1,0,0,23.21055794245369
+3,00:29.8,52,65,[CON] Williams Jump Shot: Missed,con,field_goal_attempt,135,102,two_pointer,1,0,0,16.92010638264429
+3,00:13.7,52,65,[CON] Banham 3pt Shot: Missed,con,field_goal_attempt,-119,236,three_pointer,1,0,0,26.430474834932497
+3,00:11.7,52,65,[CON] Team Turnover : Shot Clock Turnover,con,turnover,-126,221,NA,0,0,0,25.43953615929347
+3,00:01.0,52,65,[LAS] Walker Layup Shot: Missed Block: Tuck (2 BLK),las,field_goal_attempt,-67,22,two_pointer,1,0,0,7.051950084905593
+4,09:52,52,65,[LAS] Brown Turnover : 3 Second Violation (3 TO),las,turnover,-6,29,NA,0,0,0,2.9614185789921694
+4,09:34,52,67,[CON 67-52] Jones Turnaround Hook Shot: Made (2 PTS) Assist: Tuck (1 AST),con,field_goal_attempt,71,43,two_pointer,0,1,0,8.300602387778852
+4,09:15,54,67,[LAS 54-67] Brown Driving Layup Shot: Made (4 PTS) Assist: Walker (2 AST),las,field_goal_attempt,-65,17,two_pointer,0,1,0,6.71863081289633
+4,09:05,54,69,[CON 69-54] Tuck Driving Layup Shot: Made (4 PTS) Assist: Clarendon (3 AST),con,field_goal_attempt,48,17,two_pointer,0,1,0,5.0921508225896055
+4,09:05,54,69,[LAS] Walker Foul: Shooting (2 PF) (1 FTA),las,foul,48,17,NA,0,0,1,5.0921508225896055
+4,08:48,56,70,[LAS 56-70] Jones Driving Floating Jump Shot: Made (4 PTS) Assist: Walker (3 AST),las,field_goal_attempt,106,-12,two_pointer,0,1,0,10.667708282475669
+4,08:32,56,70,[CON] Tuck Driving Layup Shot: Missed,con,field_goal_attempt,73,19,two_pointer,1,0,0,7.543208866258444
+4,08:28,56,70,[LAS] Gray Turnover : Bad Pass (4 TO) Steal:Tuck (1 ST),las,turnover,-36,430,NA,0,0,0,43.15043452851894
+4,08:23,56,70,[LAS] Brown Foul: Shooting (1 PF) (2 FTA),las,foul,54,17,NA,0,0,1,5.661271941887265
+4,08:10,56,71,[LAS] Mabrey 3pt Shot: Missed,las,field_goal_attempt,227,47,three_pointer,1,0,0,23.181458107720488
+4,08:04,56,71,[LAS] Jones Foul: Personal (2 PF),las,foul,76,229,NA,0,0,0,24.128199269734157
+4,07:56,56,73,[CON 73-56] Jones Driving Layup Shot: Made (4 PTS) Assist: Banham (1 AST),con,field_goal_attempt,-25,11,two_pointer,0,1,0,2.7313000567495327
+4,07:34,56,73,[LAS] Jones 3pt Shot: Missed,las,field_goal_attempt,220,110,three_pointer,1,0,0,24.596747752497688
+4,07:30,56,73,[LAS] Walker 3pt Shot: Missed,las,field_goal_attempt,238,32,three_pointer,1,0,0,24.014162487998618
+4,07:26,56,73,[CON] Banham Foul: Loose Ball (1 PF),con,foul,182,32,NA,0,0,0,18.47917747087245
+4,07:14,59,73,[LAS 59-73] Ogwumike 3pt Shot: Made (12 PTS) Assist: Gray (4 AST),las,field_goal_attempt,221,87,three_pointer,0,1,0,23.7507894605632
+4,07:03,59,73,[CON] Jones Turnover : 3 Second Violation (1 TO),con,turnover,11,37,NA,0,0,0,3.8600518131237567
+4,06:45,59,73,[LAS] Gray Turnover : Out of Bounds Lost Ball Turnover (5 TO),las,turnover,-139,125,NA,0,0,0,18.693849255838135
+4,06:37,59,73,[CON] Holmes Turnover : Lost Ball (1 TO) Steal:Walker (1 ST),con,turnover,206,145,NA,0,0,0,25.19146680921935
+4,06:28,59,73,[LAS] Walker Driving Layup Shot: Missed,las,field_goal_attempt,-50,19,two_pointer,1,0,0,5.3488316481265326
+4,06:15,59,75,[CON 75-59] Clarendon Layup Shot: Made (4 PTS),con,field_goal_attempt,58,11,two_pointer,0,1,0,5.903388857258177
+4,06:04,62,75,[LAS 62-75] Ogwumike 3pt Shot: Made (15 PTS) Assist: Jones (2 AST),las,field_goal_attempt,-142,239,three_pointer,0,1,0,27.800179855533308
+4,05:52,62,75,[LAS] Walker Foul: Shooting (3 PF) (2 FTA),las,foul,-98,26,NA,0,0,1,10.139033484509262
+4,05:40,65,77,[LAS 65-77] Ogwumike 3pt Shot: Made (18 PTS) Assist: Jones (3 AST),las,field_goal_attempt,74,244,three_pointer,0,1,0,25.497450852977437
+4,05:16,65,77,[CON] Thomas Turnover : Bad Pass (1 TO) Steal:Gray (1 ST),con,turnover,19,18,NA,0,0,0,2.6172504656604803
+4,05:04,67,77,[LAS 67-77] Ogwumike Cutting Layup Shot: Made (12 PTS) Assist: Mabrey (1 AST),las,field_goal_attempt,27,11,two_pointer,0,1,0,2.9154759474226504
+4,04:52,67,77,[CON] Williams Pullup Jump shot: Missed,con,field_goal_attempt,67,160,two_pointer,1,0,0,17.346181135915767
+4,04:45,67,77,[LAS] Mabrey Driving Layup Shot: Missed Block: Jones (5 BLK),las,field_goal_attempt,42,27,two_pointer,1,0,0,4.992995093127972
+4,04:39,67,77,[CON] Thomas Driving Layup Shot: Missed Block: Ogwumike (2 BLK),con,field_goal_attempt,50,3,two_pointer,1,0,0,5.008991914547277
+4,04:27,67,77,[CON] Stricklen 3pt Shot: Missed,con,field_goal_attempt,29,239,three_pointer,1,0,0,24.075298544358695
+4,04:14,67,79,[CON 79-67] Williams Pullup Jump shot: Made (15 PTS),con,field_goal_attempt,101,71,two_pointer,0,1,0,12.345849504995595
+4,04:00,69,79,[LAS 69-79] Ogwumike Driving Reverse Layup Shot: Made (14 PTS) Assist: Gray (5 AST),las,field_goal_attempt,24,13,two_pointer,0,1,0,2.7294688127912363
+4,03:39,69,79,[CON] Thomas 3pt Shot: Missed,con,field_goal_attempt,156,214,three_pointer,1,0,0,26.482447016844947
+4,03:25,69,79,[LAS] Gray Foul: Offensive Charge (3 PF),las,foul,28,62,NA,0,0,0,6.802940540677979
+4,03:25,69,79,[LAS] Gray Turnover : Offensive Foul Turnover (6 TO),las,turnover,28,62,NA,0,0,0,6.802940540677979
+4,03:10,69,79,[CON] Jones Turnover : Lost Ball (4 TO) Steal:Ogwumike (3 ST),con,turnover,-54,25,NA,0,0,0,5.950630218724736
+4,03:08,69,79,[CON] Jones Foul: Personal (1 PF),con,foul,47,816,NA,0,0,0,81.73524331645437
+4,02:50,71,79,[LAS 71-79] Ogwumike Cutting Finger Roll Layup Shot: Made (16 PTS) Assist: Gray (6 AST),las,field_goal_attempt,16,12,two_pointer,0,1,0,2
+4,02:50,71,79,[CON] Jones Foul: Shooting (2 PF) (1 FTA),con,foul,16,12,NA,0,0,1,2
+4,02:36,72,79,[CON] Thomas Pullup Jump shot: Missed,con,field_goal_attempt,84,146,two_pointer,1,0,0,16.84399002611911
+4,02:15,72,79,[LAS] Gray Turnover : Bad Pass (7 TO) Steal:Jones (1 ST),las,turnover,94,238,NA,0,0,0,25.58906016249913
+4,02:10,72,79,[LAS] Ogwumike Foul: Personal (4 PF) (2 FTA),las,foul,-110,162,NA,0,0,0,19.5816240388789
+4,02:00,75,81,[LAS 75-81] Ogwumike 3pt Shot: Made (21 PTS) Assist: Jones (4 AST),las,field_goal_attempt,109,241,three_pointer,0,1,0,26.450330810785715
+4,01:45,75,81,[CON] Jones 3pt Shot: Missed,con,field_goal_attempt,-9,260,three_pointer,1,0,0,26.0155722597063
+4,01:26,75,81,[LAS] Jones Turnover : Bad Pass (1 TO) Steal:Jones (2 ST),las,turnover,-96,15,NA,0,0,0,9.716480844420989
+4,01:22,75,81,[CON] Stricklen Turnover : Bad Pass (1 TO) Steal:Mabrey (2 ST),con,turnover,-120,278,NA,0,0,0,30.279365911458584
+4,01:16,77,81,[LAS 77-81] Ogwumike Driving Layup Shot: Made (19 PTS) Assist: Mabrey (2 AST),las,field_goal_attempt,37,7,two_pointer,0,1,0,3.7656340767525465
+4,00:59.8,77,81,[CON] Williams Turnover : Lost Ball (1 TO) Steal:Ogwumike (3 ST),con,turnover,-37,28,NA,0,0,0,4.640043103248073
+4,00:56.0,77,81,[LAS] Gray Turnover : Out of Bounds Lost Ball Turnover (8 TO),las,turnover,102,2,NA,0,0,0,10.20196059588548
+4,00:34.8,77,83,[CON 83-77] Thomas Jump Shot: Made (11 PTS) Assist: Williams (3 AST),con,field_goal_attempt,79,49,two_pointer,0,1,0,9.296235797353681
+4,00:29.9,77,83,[LAS] Jones Jump Shot: Missed,las,field_goal_attempt,203,21,two_pointer,1,0,0,20.408331631958553
+4,00:25.7,77,83,[LAS] Jones Foul: Personal Take (3 PF) (2 FTA),las,foul,181,502,NA,0,0,0,53.363376954611866
+4,00:24.2,77,85,[LAS] Jones Turnover : Bad Pass (2 TO) Steal:Thomas (5 ST),las,turnover,220,141,NA,0,0,0,26.13063336392748
+4,00:21.1,77,87,[CON 87-77] Thomas Running Layup Shot: Made (15 PTS),con,field_goal_attempt,24,-1,two_pointer,0,1,0,2.4020824298928627
+4,00:10.1,77,87,[LAS] Jones Turnover : Bad Pass (3 TO) Steal:Thomas (6 ST),las,turnover,69,188,NA,0,0,0,20.026232796010337
+4,00:06.2,77,89,[CON 89-77] Thomas Running Layup Shot: Made (17 PTS),con,field_goal_attempt,-41,-10,two_pointer,0,1,0,4.220189569201838
+4,00:01.0,77,89,[LAS] Jones 3pt Shot: Missed,las,field_goal_attempt,96,258,three_pointer,1,0,0,27.528167392690708
