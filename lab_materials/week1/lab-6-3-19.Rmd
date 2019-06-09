@@ -118,7 +118,7 @@ a. How many rows are in this data set?  How many columns?  (Hint:  Look at the h
 b. What do you think the command `head()` does?  What does `tail()` do?  What does the number argument do?
 
 ```{R, warning = FALSE, message = FALSE}
-head(mlb,2)
+head(mlb, 2)
 tail(mlb, 5)
 ```
 
@@ -131,7 +131,9 @@ ggplot(data = mlb, aes(x = final_rank)) + geom_bar()
 Describe the above plot in words. How does it compare to the below command?
 
 ```{R}
-mlb %>% select(final_rank) %>% table
+tab <- mlb %>% select(final_rank, win_world_series) %>% table
+class(tab)
+as.data.frame(tab)
 ```
 
 d.
@@ -157,7 +159,7 @@ pirates %>% filter(year >= 1960 & year <= 1990) %>%
 c. We can also look at percents rather than raw numbers.
 
 ```{R, warning = FALSE, message = FALSE}
-pirates %>% filter(year >= 1960 & year <= 1990) %>% 
+pirates %>% filter(year >= 1990 & year <= 2010) %>% 
   ggplot(aes(x = final_rank, y = ..count.. / sum(..count..) )) + geom_bar()
 ```
 d.  Can you make a bar plot of percents of the final rank for the Pirates between 1991 and 2018?  How do the two compare?
@@ -189,8 +191,7 @@ ggplot(data = mlb, aes(x = factor(final_rank))) + geom_bar() +
 c. Make this plot.
 
 ```{R, warning = FALSE, message = FALSE}
-
-ggplot(data = mlb, aes(x = factor(final_rank))) + geom_bar() + 
+ggplot(data = mlb, aes(x = final_rank)) + geom_bar() + 
   coord_polar(theta = "y")
 
 ```
@@ -249,7 +250,8 @@ g + scale_fill_brewer(type = "qual", guide = FALSE)
 e. It may make more sense to view the rankings as sequential values (order matters).
 
 ```{R, warning = FALSE, message = FALSE}
-g <- ggplot(data = pirates, aes(x = factor(final_rank), fill = factor(final_rank))) + geom_bar() +
+g <- ggplot(data = pirates, aes(x = factor(final_rank), fill = factor(final_rank),
+                                col = final_rank)) + geom_bar() +
   labs(x = "Final rank at end of season",
        y = "Frequency",
        title = "Final rank of MLB teams",
