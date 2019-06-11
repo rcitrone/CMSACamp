@@ -31,10 +31,6 @@ playerid_lookup(last_name = "Bell", first_name = "Josh")
 playerid_lookup(last_name = "Gallo", first_name = "Joey")
 # Use 608336
 
-# Pull all of Yelich's Statcast data in 2018:
-yelich_statcast_data <- scrape_statcast_savant_batter(start_date = "2018-01-01", 
-                                                      end_date = "2018-12-31", 
-                                                      batterid = 592885)
 # Remove the chadwick lookup table from global environment:
 rm(chadwick_player_lu_table)
 
@@ -50,7 +46,8 @@ top_batters_batted_ball_data <- map_dfr(1:length(top_batters),
                                             filter(type == "X") %>%
                                             # Now extract just a subset of columns that will be used for generate 
                                             # some plots of the x,y locations:
-                                            select(pitch_type, bb_type, hc_x, hc_y, launch_speed, launch_angle, events) %>%
+                                            select(pitch_type, bb_type, hc_x, hc_y, launch_speed, launch_angle, events,
+                                                   stand, hit_distance_sc) %>%
                                             # Fix the batted ball coordinates for plotting
                                             mutate(hc_x = hc_x - 125.42, 
                                                    hc_y = 198.27 - hc_y) %>%
@@ -58,7 +55,9 @@ top_batters_batted_ball_data <- map_dfr(1:length(top_batters),
                                                    hit_y = hc_y,
                                                    exit_velocity = launch_speed,
                                                    batted_ball_type = bb_type,
-                                                   outcome = events) %>%
+                                                   outcome = events,
+                                                   hit_distance = hit_distance_sc,
+                                                   batter_stand = stand) %>%
                                             # Create a player column with their name:
                                             mutate(player = names(top_batters)[batter_i])
                                         })
