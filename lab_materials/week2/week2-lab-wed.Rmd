@@ -1,0 +1,205 @@
+---
+title: "Linear Modeling Lab 2"
+author: "Sports Camp Crew"
+date: "June 12, 2019"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, cache = TRUE)
+```
+
+# Plotting for linear modeling
+
+## Goals
+
+As a continuation of yesterday's lab, we will continue linear modeling, focusing on building and assessing linear models in R.  In this lab we will
+
+
++ Extract the best fit line along with confidence and prediction intervals for simple linear regression
+
++ Look at diagnostic plots to determine whether a linear model is a good fit for our data.
+
++ Assess our fitted linear models.
+
+
+
+## Preliminaries
+
+Execute the following code chunk to load the necessary packages for this lab:
+
+```{r, echo = FALSE}
+library('tidyverse')
+library('GGally')
+```
+
+Execute the following code chunk to a) load the necessary data for this lab, b) compute a few variables we will use in this lab, and c) subset out players with low minute totals (fewer than 250 minutes played in a season):
+
+```{r}
+nba <- read.csv("https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ")
+
+nba$field_goal_percentage <- nba$field_goals / nba$field_goal_attempts
+nba$three_point_percentage <- nba$three_pointers / nba$three_point_attempts
+nba$free_throw_percentage <- nba$free_throws / nba$free_throw_attempts
+nba_subset <- filter_all(nba, all_vars(!is.na(.))) %>% 
+  filter(minutes_played > 250) 
+```
+
+
+## Exploratory Data Analysis Revisited
+
+Yesterday we looked at the scatterplot of minutes played versus field goal percentage and plotted predicted points.  Today we will add the best fit line.
+
+```{r}
+ggplot(data = nba_subset, aes(x = field_goal_percentage, y = minutes_played)) + geom_point()
+```
+
+Fit the linear model to the data, using only field goal percentage as the explanatory variable.
+
+```{r}
+fgp_linmod <- lm(minutes_played ~ field_goal_percentage, data = nba_subset)
+summary(fgp_linmod)
+```
+
+**Question 1.** Do you think this model explains the data well?  Why or why not?
+
+**Question 2.** Can you interpret the coefficient of field goal percentage?
+
+**Question 3.** What would you tell a NBA coach to take away from this model, if anything?
+
+`ggplot` has it's own built in functions to add trend lines with defaults.  Below, `geom_smooth()` with `method = 'lm'` plots the best fit line between our `y` and `x` variables along with a 95% confidence interval for each point.
+
+```{r}
+ggplot(data = nba_subset, aes(x = field_goal_percentage, y = minutes_played)) + 
+  geom_smooth(method = 'lm') +
+  geom_point()
+```
+
+More generally, we believe it is important that it is more important to have full control over what is being plotted and so we recommend manipulating and extracting the relevant information straight from your model.  This way you will not be wondering what is being plotted (e.g. confidence vs. prediction intervals).
+
+We will instead manipulate our NBA data frame to include our new data.
+
+```{R}
+y_pred <- predict(object = fgp_linmod, data = nba_subset)
+head(y_pred)
+
+y_ci <- predict(object = fgp_linmod, data = nba_subset, interval = "confidence", level = .95)
+head(y_ci)
+
+reg_df <- cbind(nba_subset, y_ci)
+
+
+ggplot(data = reg_df, aes(x = field_goal_percentage)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr, fill = factor(1)), alpha = .3) + 
+  geom_line(aes(y = fit, col = factor(1)), size = 2) +
+  geom_point(aes(y = minutes_played)) +
+  scale_color_manual(values = c("blue"), lab = "", name = "Regression line and 95% CI") +
+  scale_fill_manual(values = c("blue"), lab = "", name = "Regression line and 95% CI")
+```
+
+**Question 4.** Can you explain why we mapped the color and fill?  Hint: Take away the last two lines with `scale_` and remove the `col` and `fill` aesthetic in `geom_ribbon()` and `geom_line()`.
+
+**Question 5.** What happens when you change the interval in `predict()` to `interval = "prediction"?  Which one produces larger intervals?  Which one produces a standard width?  Is using the prediction interval useful?
+
+The `predict()` function is applied to a variety of regression methods, not just linear regression.  To look at the arguments for linear regression, use `?predict.lm`.
+
+
+## Linear model with one continuous covariate and one categorical covariate
+
+Essentially, categorical variables make it so we are changing the intercept of our regression line (as the categorical covariate coefficient will either be 0 or a fixed value).  We can visualize this on our graph.
+
+```{r}
+fieldgoalpos_linmod <- lm(minutes_played ~ field_goal_percentage + position, data = nba_subset)
+summary(fieldgoalpos_linmod)
+```
+
+
+
+```{r}
+y_ci <- predict(object = fieldgoalpos_linmod, data = nba_subset, interval = "confidence", level = .95)
+head(y_ci)
+
+reg_df <- cbind(nba_subset, y_ci)
+
+
+ggplot(data = reg_df, aes(x = field_goal_percentage, col = position, fill = position,
+                          group = position)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = .3, col = NA) + 
+  geom_line(aes(y = fit), size = 2) +
+  geom_point(aes(y = minutes_played)) 
+```
+
+** Question 6.** Can you make the above plot less busy using `facet_wrap()` on the `position` covariate?
+
+```{R}
+## R code here
+```
+
+**Question 7.** Do you think adding the `position` variable is a good idea?
+
+**Question 8.** Add appropriate titles, labels, and legend titles and labels to the graph.
+
+
+
+
+## Visualizing linear regression with multiple covariates
+
+When we have more than one continuous variable we have to get creative in how we display our results.  For example if we look at minutes played vs. field goal percentage and defensive rebounds we do not see the full picture by plotting minutes played vs. field goal percentage.  One way to look at the total fit of the model is to look at the standardized residuals of the model vs. the fitted values (eg. standardized $y - \hat{y}$ vs. $\hat{y}$).
+
+```{r}
+fg_dr_linmod <- lm(minutes_played ~ field_goal_percentage + defensive_rebounds, data = nba_subset)
+summary(fg_dr_linmod)
+```
+
+**Question 9**.  From the model summary results, do you think adding defensive rebounds is important?  Do you think this model has a strange result? (Hint: look at the coefficient of field goal percentage).
+
+
+Let's extract the standardized residuals.
+```{r}
+std_resid <- rstandard(fg_dr_linmod)
+range(std_resid)
+fit <- fg_dr_linmod$fitted.values # another way to extract the fitted values
+plot_df <- cbind(nba_subset, std_resid, fit)
+
+ggplot(data = plot_df, aes(x = fit, y = std_resid)) + geom_point() + geom_hline(yintercept = 0, col = "red")
+
+```
+
+**Question 10**.  What can you say about the residuals?  Do you think this model is a good fit?  What does a negative residual mean in the context of our model?
+
+
+## More EDA
+
+It always good to look at pairs plot of our covariates and response variable.  The library ``Ggally` has a function to do just this.
+
+```{R}
+vars <- c("minutes_played", "field_goal_percentage", "defensive_rebounds", "position")
+
+ggpairs(nba_subset, vars, title = "Pairs plot")
+
+```
+
+**Question 11**.  What are the diagonals of the above plot showing?
+
+**Question 12**.  Which pairs of variables seem positively related?  Do any seem negatively related?
+
+
+
+
+# Bonus Questions
+
+Where the bonus is making lots of graphs.
+
+1. Can you find the pair of variables with the strongest linear relationship (both positive or negative)?
+
+2. Does it make sense to use those two variables in a regression framework?  That is, does it make sense to have one explained by the other?  (not necessarily caused by).
+
+3. What happens when you use a linear regression to predict the minutes played from all the variables?  What about if you remove player?  What if you remove team and player?
+
+4. Find **your** best fit model.  Justify why you chose such a model.  What would you recommend to an NBA coach from the results of your model?
+
+
