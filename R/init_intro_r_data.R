@@ -72,7 +72,7 @@ nba_2019_player_stats <- rvest::html_table(br_page, fill = T)[[1]] %>%
          # they played for in the 2019 season:
          Tm != "TOT") %>%
   # Convert everything but Player, Pos, and Tm to numeric 
-  mutate_at(dplyr::vars(-Player, -Pos, -Tm), list(~as.numeric)) %>%
+  mutate_at(dplyr::vars(-Player, -Pos, -Tm), list(~as.numeric(.))) %>%
   # Drop several columns not needed - so students calculate on their own the
   # various efficiency metrics:
   dplyr::select(-Rk, -`FG%`, -`3P%`, -`2P%`, -`eFG%`, -`FT%`, -TRB, -PTS) %>%
