@@ -47,7 +47,7 @@ pitch-level data from the MLB. This data is in the same format as the [Yelich ba
 
 # NFL team season summary data
 
-Each row in the [nfl_teams_season_summary.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/eda_projects/degrom_2018_pitches.csv) dataset corresponds to a single NFL team in a single
+Each row in the [nfl_teams_season_summary.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/eda_projects/nfl_teams_season_summary.csv) dataset corresponds to a single NFL team in a single
 regular season. The column names are organized below by the type of information they contain, with
 the first set of columns being self-explanatory:
 
