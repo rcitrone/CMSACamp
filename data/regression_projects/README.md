@@ -37,4 +37,28 @@ Each row in the [nhl_team_season_summary.csv](https://raw.githubusercontent.com/
 season dating back to 2007. The full glossary for the columns in this dataset
 can be found here: https://evolving-hockey.com/ (click on the __More__ tab, then select __Glossary__).
 
+# Tennis grand slams data
+
+Each row in the data corresponds to a grand slam match between two players.  A variety of summary statistics of the match are reported along with winner and loser information.  Variables include:
+
+* `tournament` - one of the four grand slams: Australian Open, French Open, US Open, and Wimbledon
+* `year`
+* `winner_name` and `loser_name`
+* `winner_rank` and `loser_rank` according to ATP or WTA, respectively at the time of tournament
+* `Retirement`   whether the match ended in a retirement (i.e. one person was unable to finish the match).  Logical -- TRUE means the match ended in retirement
+* `Tour` either WTA or ATP
+* `round` - `R128` Round of 128, `R64` - Round of 64, `R32` - Round of 32, `R16` Round of 16, `QF` Quarter Final, `SF` Semi Final, and `F` Final     
+* `w_*` and `l_*` stands for winner and loser, respectively where the suffix is one of many summary statistics including
+* `ave_serve_speed`    in mph
+* `n_aces` number of aces
+* `n_winners` number of winners including aces
+* `n_netpt_w` number of net points won
+* `n_netpt` number of net points played
+* `n_bp_w` number of break points won (to break the opponent)
+* `n_bp` number of break points (to break the opponent)
+* `n_ue` number of unforced errors
+* `n_sv` number of serves
+* `n_sv_w` number of service points won
+
+
 
