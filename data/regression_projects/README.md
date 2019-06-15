@@ -1,8 +1,8 @@
-# EDA projects data overview
+# Regression projects data overview
 
-There are four different datasets for the EDA projects (three of which were generated via the [`init_regression_project_data.R`](https://github.com/ryurko/CMSACamp/blob/master/R/init_regression_project_data.R) script):
+There are four different datasets for the regression projects (three of which were generated via the [`init_regression_project_data.R`](https://github.com/ryurko/CMSACamp/blob/master/R/init_regression_project_data.R) script):
 
-* [nfl_team_season_summary.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/regression_projects/nfl_teams_season_summary.csv) - summary of regular season performance for each NFL team since 2009, data accessed via [`nflscrapR`](https://github.com/maksimhorowitz/nflscrapR),
+* [nfl_team_season_summary.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/regression_projects/nfl_team_season_summary.csv) - summary of regular season performance for each NFL team since 2009, data accessed via [`nflscrapR`](https://github.com/maksimhorowitz/nflscrapR),
 * [nba_team_season_summary.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/regression_projects/nba_team_season_summary.csv) - summary of regular season performance for each NBA team since 2003, courtesy of [NBA stats](https://stats.nba.com/) via the ['nbastatR package'](http://asbcllc.com/nbastatR/index.html),
 * [nhl_team_season_summary.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/regression_projects/nhl_team_season_summary.csv) - summary of regular season performance for each NHL team since 2007, courtesy of [Evolving-Hockey](https://evolving-hockey.com/),
 * [tennis_2013_2017_GS.csv](https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/eda_projects/tennis_2013_2017_GS.csv) - tennis grand slam statistics for 3066 ATP and WTA matches between 2013 and 2017.  Data from Jeff Sackman's [tennis data repo](https://github.com/JeffSackmann), retreived by Stephanie Kovalchik's [`R deuce` package](https://github.com/skoval/deuce/blob/master/DESCRIPTION), and synthethesized in Gallagher, Frisoli, and Luby's [`R courtsports` package](https://github.com/shannong19/courtsports).
