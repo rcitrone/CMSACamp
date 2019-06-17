@@ -1,0 +1,184 @@
+---
+title: "Linear Modeling Lab 3"
+author: "Sports Camp Crew"
+date: "May 27, 2019"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Linear modeling
+
+## Goals
+
+We've seen how to build and assess linear models predicting minutes played for NBA players. So far, we have covered simple linear models of a few variables. Today, we will go over some ways to include more variables and increase explanatory power of a model, and a paradigm -- training/testing -- for avoiding overfitting.
+
+## Preliminaries
+
+Execute the following code chunk to load the necessary packages for this lab:
+
+```{r, echo = FALSE}
+library('tidyverse')
+library('GGally')
+```
+
+Execute the following code chunk to a) load the necessary data for this lab, b) compute a few variables we will use in this lab, and c) subset out players with low minute totals (fewer than 250 minutes played in a season):
+
+```{r}
+nba <- read.csv("https://raw.githubusercontent.com/ryurko/CMSACamp/master/data/intro_r/nba_2019_player_stats.csv?token=AFKSV7EZOGYYTLAWNZ7YRPC453VNQ")
+
+nba$field_goal_percentage <- nba$field_goals / nba$field_goal_attempts
+nba$three_point_percentage <- nba$three_pointers / nba$three_point_attempts
+nba$free_throw_percentage <- nba$free_throws / nba$free_throw_attempts
+nba_subset <- filter_all(nba, all_vars(!is.na(.))) %>% 
+  filter(minutes_played > 250) 
+```
+
+## Categorical variables: interactions and aggregations.
+
+When we have a categorical explanatory variable in a linear model, we can use interaction terms to build more complex models. Interaction terms allow for a different linear model to be fit for each category. If we believe relationships between continuous variables, and outcomes, differ across categories, we can use interaction terms to better model these relationships.
+
+Recall that yesterday, we fit a linear model predicting minutes played using field goal percentage and position. Run the following code chunk to fit this model along with an interaction term.
+
+```{r}
+fieldgoalpos_linmod <- lm(minutes_played ~ field_goal_percentage + position + field_goal_percentage*position, data = nba_subset)
+```
+
+Now, run the following code chunk to compute confidence intervals, and plot the resulting linear fits by position.
+
+```{r}
+
+y_ci <- predict(object = fieldgoalpos_linmod, data = nba_subset, interval = "confidence", level = .95)
+
+reg_df <- cbind(nba_subset, y_ci)
+
+
+ggplot(data = reg_df, aes(x = field_goal_percentage, col = position, fill = position,
+                          group = position)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = .3, col = NA) + 
+  geom_line(aes(y = fit), size = 2) +
+  geom_point(aes(y = minutes_played)) +
+  facet_wrap(~position)
+```
+
+**Question 1**: Describe the difference in relationship between minutes played and field goal percentage by position. Do you think using an interaction between position and field goal percentage improved the quality of the linear fit?
+
+One drawback to using interaction terms is that if a categorical variable has many different categories, using interaction terms effectively reduces the sample size for each category. As a result, using interaction terms may considerably increase the uncertainty associated with our linear model. To balance the desire for more flexible models with the desire for small uncertainty, we can combine 'similar' categories together, to form a new categorical variable with fewer total categories.
+
+**Question 2** : Imagine you were creating a two-category variable based on position. Which positions would you combine into each category? Justify your answer, using any background knowledge you may have but more importantly the above plots of linear fits.
+
+**Question 3**: In the following code chunk, I've created a three-category variable based on position, using the `case_when` function from the `dplyr` package. Make necessary changes to the code below in order to create the variable you specified in Question 2.
+
+```{r}
+position_aggregate <- factor(case_when(
+  nba_subset$position %in% c('SG','PG') ~ "guard",
+  nba_subset$position %in% c('SF','PF') ~ "forward",
+  nba_subset$position %in% c('C') ~ "center"
+  ))
+nba_subset$position_aggregate <- position_aggregate
+```
+
+**Question 4**:
+
+Fit a linear model predicting minutes played using field goal percentage, the `position_aggregate` variable you created in the previous question, and the interaction between the two. Plot your resulting model. How does the fit by category compare to before? How about the width of the confidence intervals? [Hint: if you cannot visually distinguish the width of the confidence interval for the fitted line, check out the interval for a particular player.]
+
+## Continuous variables: transformations.
+
+Another way to increase the explanatory power of your model is to include transformations of continuous variables. Run the following code chunks to fit and summarize a model predicting minutes played as a linear function of field goal percentange and the square of field goal_percentage.
+
+```{r}
+nba_subset$field_goal2 <- nba_subset$field_goal_percentage^2
+fieldgoal_linmod2 <- lm(minutes_played ~ field_goal_percentage + field_goal2, data = nba_subset)
+summary(fieldgoal_linmod2)
+```
+
+
+**Question 1**: What are some difficulties with interpreting the above fit?
+
+**Question 2**: Run the following code chunk to plot the field goal percentage against minutes played, and the fitted quadratic model. Explain qualitatively how the resulting fit differs from the best linear fit.
+
+```{r}
+y_pred <- predict(object = fieldgoal_linmod2, data = nba_subset)
+
+reg_df2 <- cbind(nba_subset, y_pred)
+
+
+ggplot(data = reg_df2, aes(x = field_goal_percentage)) +
+  geom_line(aes(y = y_pred), size = 2) +
+  geom_point(aes(y = minutes_played))
+```
+
+**Question 3**: The `poly()` function allows us to build higher-order polynomial transformations of variables easily. Run the following code chunk to fit a 9th-order polynomial model (i.e. $Y = \beta_0 + \beta_1x + \beta_2x^2 + \ldots + \beta_9x^9$) between minutes played and field goal percentage. 
+
+```{r}
+fieldgoal_linmod9 <- lm(minutes_played ~ poly(field_goal_percentage,9), data = nba_subset)
+summary(fieldgoal_linmod2)
+y_pred <- predict(object = fieldgoal_linmod9, data = nba_subset)
+
+reg_df9 <- cbind(nba_subset, y_pred)
+
+
+ggplot(data = reg_df9, aes(x = field_goal_percentage)) +
+  geom_line(aes(y = y_pred), size = 2) +
+  geom_point(aes(y = minutes_played))
+```
+
+**Question 4**: Based on visually examining the plotted fits, would you use the fit from Question 2, Question 3, or the linear fit to predict minutes played using field goal percentage?
+
+## Training / Testing
+
+As we've seen, using transformations may decrease the interpretability and increase the potential for overfitting associated with our models; however, they can also dramatically improve the explanatory power.
+
+We still need an objective criterion (for example $R^2$) to use in order to choose between various models. To do so, we introduce the training/testing paradigm. 
+
+**Question 1**: The first thing we will need to do is split our sample. Run the following code chunk to divide our data into two halves, which we will refer to as a training set and a test set. Briefly summarize what each line in the code chunk is doing.
+
+```{r}
+n_players <- length(players)
+
+train <- base::sample(n_players, n_players/2, replace = FALSE)
+test <- (1:n_players)[-train]
+
+nba_train <- nba_subset[train,]
+nba_test <- nba_subset[test,]
+```
+
+**Question 2**: We will now compare three candidate models for predicting minutes played using position and field goal percentage. We will fit these models on the **training data** only, ignoring the testing data for the moment. Run the below two code chunks to create two candidate models:
+
+```{r}
+candidate_model_1 <- lm(minutes_played ~ poly(field_goal_percentage,2) + position_aggregate + position_aggregate*poly(field_goal_percentage,2), data = nba_train)
+```
+
+```{r}
+candidate_model_2 <- lm(minutes_played ~ poly(field_goal_percentage,2), data = nba_train)
+```
+
+Which of these models has more explanatory power? Which of the models is less likely to overfit?
+
+**Question 3**: In the following code chunk, build a third candidate model predicting minutes played using position and field goal percentage.
+
+```{r}
+```
+
+**Question 4**: Now that we've built our candidate models, we will evaluate them on our test set, using the criterion of root mean squared error (RMSE). Run the following code chunk to compute, on the test set, the RMSE of predictions given by the first model compared to the actual minutes played.
+
+```{r}
+model_1_preds <- predict(candidate_model_1, newdata = nba_test)
+model_1_rmse <- sqrt(mean((model_1_preds - nba_test$minutes_played)^2))
+```
+
+In the following code chunk, compute the root mean squared error over the test setfor the second and third candidate models' predictions. Which model performed best (had the lowest RMSE)?
+
+## Bonus Questions
+
+**Question 1**: Compute the RMSE over the training set for each of the three candidate models. Is the ordering of models based on training set RMSE the same as the ordering of models based on test set RMSE? Explain what's going on here.
+
+**Question 2**: Imagine you had built another model predicting minutes played using the 9th-order polynomial transformation of field goal percentage, the position categorical variable, and interaction between the two. Do you think this model would have had higher or lower RMSE over the training set than the three models we trained? How about on the test set?
+
+**Question 3**: Build a model using at least two of the transformations `sin()`, `cos()`, `log()` and `exp()` over the training set. Evaluate its RMSE on the test set, and compare it to our fitted models.
