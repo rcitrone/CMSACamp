@@ -1,7 +1,7 @@
 ---
 title: "Linear Modeling Lab 2"
 author: "Sports Camp Crew"
-date: "June 12, 2019"
+date: "June 17, 2019"
 output: 
   html_document:
     toc: true
