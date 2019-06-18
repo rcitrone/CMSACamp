@@ -17,7 +17,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Goals
 
-We've seen how to build and assess linear models predicting minutes played for NBA players. So far, we have covered simple linear models of a few variables. Today, we will go over some ways to include more variables and increase explanatory power of a model, and a paradigm -- training/testing -- for avoiding overfitting.
+We've seen how to build and assess linear models predicting minutes played for NBA players. So far, we have covered simple linear models of a few variables. However, restricting ourselves to modeling only linear relationships is often too restrictive for the data at hand. We would like to use more flexible models, which can fit more complicated relationships and better explain patterns in our data. However, there are no free lunches: models with additional flexibility/explanatory power are more likely to overfit to random noise in our particular sample.
+
+Today, we will go over some ways to transform variables and increase flexibility / explanatory power of a model, and a paradigm -- training/testing -- for avoiding overfitting.
 
 ## Preliminaries
 
@@ -42,7 +44,7 @@ nba_subset <- filter_all(nba, all_vars(!is.na(.))) %>%
 
 ## Categorical variables: interactions and aggregations.
 
-When we have a categorical explanatory variable in a linear model, we can use interaction terms to build more complex models. Interaction terms allow for a different linear model to be fit for each category. If we believe relationships between continuous variables, and outcomes, differ across categories, we can use interaction terms to better model these relationships.
+When we have a categorical explanatory variable in a linear model, we can use interaction terms to build more complex models. Interaction terms allow for a different linear model to be fit for each category; that is, they allow for different slopes across different categories. If we believe relationships between continuous variables, and outcomes, differ across categories, we can use interaction terms to better model these relationships.
 
 Recall that yesterday, we fit a linear model predicting minutes played using field goal percentage and position. Run the following code chunk to fit this model along with an interaction term.
 
@@ -101,16 +103,20 @@ summary(fieldgoal_linmod2)
 
 **Question 1**: What are some difficulties with interpreting the above fit?
 
-**Question 2**: Run the following code chunk to plot the field goal percentage against minutes played, and the fitted quadratic model. Explain qualitatively how the resulting fit differs from the best linear fit.
+**Question 2**: Run the following code chunks to plot the field goal percentage against minutes played, and the fitted quadratic model. Explain qualitatively how the resulting fit differs from the best linear fit.
 
 ```{r}
-y_pred <- predict(object = fieldgoal_linmod2, data = nba_subset)
+fieldgoal_linmod <- lm(minutes_played ~ field_goal_percentage, data = nba_subset)
 
-reg_df2 <- cbind(nba_subset, y_pred)
+y_pred <- predict(object = fieldgoal_linmod, data = nba_subset)
+y_pred2 <- predict(object = fieldgoal_linmod2, data = nba_subset)
+
+reg_df2 <- cbind(nba_subset, y_pred, y_pred2)
 
 
 ggplot(data = reg_df2, aes(x = field_goal_percentage)) +
   geom_line(aes(y = y_pred), size = 2) +
+  geom_line(aes(y = y_pred2), size = 2, col ='red') + 
   geom_point(aes(y = minutes_played))
 ```
 
@@ -129,18 +135,18 @@ ggplot(data = reg_df9, aes(x = field_goal_percentage)) +
   geom_point(aes(y = minutes_played))
 ```
 
-**Question 4**: Based on visually examining the plotted fits, would you use the fit from Question 2, Question 3, or the linear fit to predict minutes played using field goal percentage?
+**Question 4**: Based on visually examining the plotted fits, would you use the linear fit, quadratic fit, or 9th-order polynomial fit to predict minutes played using field goal percentage? Do any of the models look like they overfit to the sample data?
 
 ## Training / Testing
 
-As we've seen, using transformations may decrease the interpretability and increase the potential for overfitting associated with our models; however, they can also dramatically improve the explanatory power.
+As we've seen, using transformations such as higher-order polynomials may decrease the interpretability and increase the potential for overfitting associated with our models; however, they can also dramatically improve the explanatory power.
 
-We still need an objective criterion (for example $R^2$) to use in order to choose between various models. To do so, we introduce the training/testing paradigm. 
+We need a way for making sure our more complicated models have not overly fit to the noise present in our data. Another way of saying this is that a good model should generalize to a different sample than the one on which it was fit. This intuition motivates the idea of training/testing. We split our data into two parts, use one part -- the training set -- to fit our models, and the other part -- the testing set -- to evaluate our models. Any model which happens to fit to the noise present in our training data should perform poorly on our testing data.  
 
 **Question 1**: The first thing we will need to do is split our sample. Run the following code chunk to divide our data into two halves, which we will refer to as a training set and a test set. Briefly summarize what each line in the code chunk is doing.
 
-```{r}
-n_players <- length(players)
+```{r, echo = TRUE}
+n_players <- nrow(nba_subset)
 
 train <- base::sample(n_players, n_players/2, replace = FALSE)
 test <- (1:n_players)[-train]
@@ -161,7 +167,7 @@ candidate_model_2 <- lm(minutes_played ~ poly(field_goal_percentage,2), data = n
 
 Which of these models has more explanatory power? Which of the models is less likely to overfit?
 
-**Question 3**: In the following code chunk, build a third candidate model predicting minutes played using position and field goal percentage.
+**Question 3**: In the following code chunk, build a third candidate model predicting minutes played using position and field goal percentage (you may use any transformations you like.)
 
 ```{r}
 ```
@@ -173,7 +179,7 @@ model_1_preds <- predict(candidate_model_1, newdata = nba_test)
 model_1_rmse <- sqrt(mean((model_1_preds - nba_test$minutes_played)^2))
 ```
 
-In the following code chunk, compute the root mean squared error over the test setfor the second and third candidate models' predictions. Which model performed best (had the lowest RMSE)?
+In the following code chunk, compute the root mean squared error over the test set for the second and third candidate models' predictions. Which model performed best (had the lowest RMSE)?
 
 ## Bonus Questions
 
